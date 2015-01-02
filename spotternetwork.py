@@ -4,7 +4,7 @@ When running from command line will dump geojson of spotternetwork positions
 """
 
 from pykml import parser
-from geojson import Feature, FeatureCollection, Point
+from geojson import Feature, FeatureCollection, Point, utils
 from geojson import dumps as geojsondumps
 import urllib2
 
@@ -28,6 +28,16 @@ class SpotterNetwork(object):
     def get_positions(self):
         """Return geojson featurecollectin object"""
         return self.positions
+
+    def dump_human(self):
+        """Print human readable output of posistions"""
+        features = self.positions['features']
+        for position in features:
+            properties = position['properties']
+            lon, lat = list(utils.coords(position))[0]
+            print "%s: %s, %s: %s, %s: %s" % ('name', properties['name'],
+                                              'longitude', lon,
+                                              'latitude', lat)
 
     def load_from_kml(self,
                       url='http://www.spotternetwork.org/feeds/earth-all.txt'):
