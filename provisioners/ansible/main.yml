@@ -2,5 +2,12 @@
 - hosts: all
 
   tasks:
-  - name: Install setuptools
-    apt: name=git state=present update_cache=yes cache_valid_time=1800
+  - name: Install utilities
+    apt: name={{ item }} state=present update_cache=yes cache_valid_time=1800
+    with_items:
+      - git
+      - python-dev
+      - python-setuptools
+      - python-pip
+      - libxslt1-dev
+      - libz-dev
