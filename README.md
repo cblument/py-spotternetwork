@@ -1,14 +1,19 @@
-# py-spotternetwork #
+# py-spotternetwork
 A python module for working with spotternetwork.  Converts kml positions to geojson
 
-## Features
-- retrieve a current list of active storm spotters from spotternetwork
+## Installation
+This has been tested on ubuntu 14.04.  The following is a list of operating
+system packages required to run the setup.
 
-## Requirements
-- pykml: https://pythonhosted.org/pykml/
-- python-geojson: https://pypi.python.org/pypi/geojson/
+- build-essential
+- python-dev
+- python-pip
+- python-setuptools
+- libxslt1-dev
+- libz-dev
 
-## TODO
-- methods to save to mongo database
-- geojson
-- mysql
+To install with setup tools clone the repository and run the following:
+
+```
+python setup.py install
+```
