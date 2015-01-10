@@ -1,13 +1,12 @@
 ---
 - hosts: all
-
   tasks:
-  - name: Install utilities
-    apt: name={{ item }} state=present update_cache=yes cache_valid_time=1800
-    with_items:
-      - git
-      - python-dev
-      - python-setuptools
-      - python-pip
-      - libxslt1-dev
-      - libz-dev
+    - group_by: key=os_family_{{ ansible_os_family}}
+
+- hosts: os_family_Debian
+  tasks:
+  - include: debian.yml
+
+- hosts: os_family_RedHat
+  tasks:
+  - include: redhat.yml

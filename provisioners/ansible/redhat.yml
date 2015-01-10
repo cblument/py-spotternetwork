@@ -1,0 +1,7 @@
+- name: Install utilities for redhat based os
+  yum: name={{ item }} state=present
+  with_items:
+    - python-setuptools.noarch
+    - libxslt-devel.x86_64
+    - libxml2-devel.x86_64
+    - python-devel.x86_64
