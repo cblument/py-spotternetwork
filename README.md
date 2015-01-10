@@ -1,5 +1,5 @@
 # py-spotternetwork
-A python module for working with spotternetwork.  Converts kml positions to geojson
+A python module to convert kml positions on [spotternetwork](http://www.spotternetwork.org/) to geojson.
 
 ## Installation
 This has been tested on ubuntu 14.04 and Fedora 18.
@@ -23,4 +23,17 @@ To install with setup tools clone the repository and run the following:
 
 ```
 python setup.py install
+```
+
+## Usage
+Get positions in geojson format
+```python
+from spotternetowrk import SpotterNetwork
+spotters = SpotterNetwork()
+spotters.load_from_kml()
+positions = spotters.positions
+```
+You can also just run it from the command line.  In the future I may get around to using consolescripts to make an actual cli.
+```sh.command
+python -mspotternetwork
 ```
